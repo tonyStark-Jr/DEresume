@@ -47,7 +47,7 @@ contract SBT is ERC721URIStorage, Ownable {
         view
         returns (string memory name, uint256 level, string memory description)
     {
-        require(_exists(tokenId), "Token ID does not exist");
+        require(_tokenSkills[tokenId].exists, "Token ID does not exist");
         Skill storage skill = _tokenSkills[tokenId];
         return (skill.name, skill.level, skill.description);
     }
